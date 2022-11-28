@@ -7,7 +7,7 @@ def index():
     return render_template("index.html")
 
 
-@app.route("/query", method=["GET"])
+@app.route("/query", methods=["GET"])
 def query():
     query = request.args.get("q")
     fichier = open("cours.txt", "r")
@@ -16,4 +16,4 @@ def query():
     for ligne in lignes:
         if query in ligne.lower():
             coursTrouves.append(ligne)
-    return render_template("listeCours.html", liste=coursTrouves)
+    return render_template("listesCours.html", liste=coursTrouves)
